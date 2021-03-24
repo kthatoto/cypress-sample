@@ -3,13 +3,14 @@
   h1 ToDo application
   el-input(v-model="newTaskName")
   el-button(type="primary" @click="createTask") 作成
+  el-button(type="danger" @click="deleteDoneTasks") 完了したものを削除
 
   ul
     li(v-for="task in tasks" :key="task.id")
       span
         el-checkbox(v-model="task.done")
         span {{ task.name }}
-      el-button(v-if="task.done" type="danger" size="mini") 削除
+      el-button(v-if="task.done" type="danger" size="mini" @click="deleteTask(task.id)") 削除
 </template>
 
 <script lang="ts">
