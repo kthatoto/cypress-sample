@@ -20,7 +20,7 @@
     "pug-plain-loader": "^1.1.0",
     "stylus": "^0.54.8",
     "stylus-loader": "^3.0.2",
-    "v-calendar": "^3.0.0-alpha.3"
+    "v-calendar": "2.3.0"
   },
   "devDependencies": {
     "@nuxt/types": "^2.15.3",
