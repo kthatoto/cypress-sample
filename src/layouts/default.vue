@@ -4,4 +4,6 @@ div
 </template>
 
 <style lang="stylus">
+body
+  background-color: #eee
 </style>
