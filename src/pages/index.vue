@@ -1,6 +1,9 @@
 <template lang="pug">
 .container
-  h1 ToDo application
+  h1
+    span T
+    span(@dblclick="createSampleData") o
+    span Do application
   .form
     .console
       el-input(v-model="newTaskName")
@@ -111,6 +114,16 @@ export default defineComponent({
       return dateEqual(task.date, state.date)
     }
 
+    const createSampleData = () => {
+      state.tasks = [
+        { id: 1, date: new Date(2021, 2, 24), done: false, name: "洗濯する" },
+        { id: 2, date: new Date(2021, 2, 25), done: false, name: "買い出しする" },
+        { id: 3, date: new Date(2021, 2, 26), done: true, name: "キッチンを掃除する" },
+        { id: 4, date: new Date(2021, 2, 26), done: false, name: "風呂を掃除する" },
+        { id: 5, date: new Date(2021, 2, 27), done: true, name: "リビングを掃除する" }
+      ]
+    }
+
     return {
       ...toRefs(state),
       createTask,
@@ -121,7 +134,8 @@ export default defineComponent({
       dateClass,
       attributes,
       orderedTasks,
-      focusingByDate
+      focusingByDate,
+      createSampleData,
     }
   }
 })
