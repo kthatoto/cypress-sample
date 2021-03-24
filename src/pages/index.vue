@@ -9,7 +9,7 @@
       span
         el-checkbox(v-model="task.done")
         span {{ task.name }}
-      el-button(v-if="task.done" round) 削除
+      el-button(v-if="task.done" type="danger" size="mini") 削除
 </template>
 
 <script lang="ts">
@@ -33,12 +33,14 @@ export default defineComponent({
 
     const createTask = () => {
       if (!state.newTaskName) return
-      const maxId = Math.max(...state.tasks.map(task => task.id))
+      const maxId = Math.max(...state.tasks.map(task => task.id), 0)
+      console.log(maxId)
       state.tasks.push({
         id: maxId + 1,
         name: state.newTaskName,
-        done: false,
+        done: false
       })
+      state.newTaskName = ""
     }
 
     const doneTask = (id: number) => {
